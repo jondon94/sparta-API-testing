@@ -16,17 +16,18 @@ describe 'postcodes_io' do
   it "should have status code of 200 for a successful request" do
     expect(@pcode.get_multiple_postcodes(b)['status']).to eq(200)
   end
-  #
-  # it "should have 23 individual results for each postcode" do
-  #   @pcode.get_multiple_postcodes(b).each do |result|
-  #     p result
-  #     expect(['result'].count).to eq(23)
-  #   end
-  # end
 
-  it "should have 23 individual results for a single postcode" do
-    expect(@pcode.get_single_postcode(a)['result'].length).to eq(23)
+  it "should have 23 individual results for each postcode" do
+    @pcode.get_multiple_postcodes(b)['result'].each do |result|
+      # puts result['result'].length
+      expect(result['result'].length).to eq(23)
+    end
+    # puts @pcode.get_multiple_postcodes(b)['result'][0]
   end
+
+  # it "should have 23 individual results for a single postcode" do
+  #   expect(@pcode.get_single_postcode(a)['result'].length).to eq(23)
+  # end
 
   it "should show the postcode as the first result" do
     expect(@pcode.get_single_postcode(a)['result'].first[1]).to eq 'CH4 9PF'
@@ -88,8 +89,20 @@ describe 'postcodes_io' do
     expect(@pcode.get_single_postcode(a)['result']['msoa']).to be_kind_of(String)
   end
 
+  it "should have 7 individual code results for each postcode" do
+    @pcode.get_multiple_postcodes(b)['result']['codes'].each do |codes|
+      # puts codes['codes'].length
+      expect(codes['result']['codes'].length).to eq(7)
+    end
+    # puts @pcode.get_multiple_postcodes(b)['result']['codes'][1]
+  end
+
   it "should have a code hash-key that contains 7 keys" do
-    expect(@pcode.get_single_postcode(a)['results/code'].count).to eq(7)
+    expect(@pcode.get_single_postcode(a)['result']['codes'].length).to eq(7)
+  end
+
+  it "should have codes that contain strings" do
+    expect(@pcode.get_single_postcode(a)['result']['codes']['admin_district']).to be_kind_of(String)
   end
 
 end
