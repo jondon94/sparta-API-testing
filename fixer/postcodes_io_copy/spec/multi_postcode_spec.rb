@@ -11,8 +11,8 @@ describe Postcodesio do
       @postcodesio.get_multiple_postcodes(postcodes_array)
     end
 
-    it "shuld loop through both codes and confirm 23 keys for results" do
-      expect(@postcodesio.get_multiple_postcodes_result.length).to eq(23)      
+    it "should have 23 individual results for each postcode" do
+        expect(get_multiple_postcodes_result.length).to eq(23)
     end
 
   end

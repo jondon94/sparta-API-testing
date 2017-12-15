@@ -13,9 +13,9 @@ class MultiPostcodesService
   end
 
   def get_multiple_postcodes_result
-    @multi_postcode_data.get_multiple_postcodes['result'].each do |result|
-    end
+    @multi_postcode_data['result']['result']
   end
+
 
 end
 
