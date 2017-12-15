@@ -39,6 +39,38 @@ class SinglePostcodesService
   def get_single_postcode_country
     get_result['country']
   end
+
+  def get_single_postcode_nhs
+      get_result['nhs_ha']
+  end
+
+  def get_single_postcode_long_coord
+    get_result['longitude']
+  end
+
+  def get_single_postcode_lat_coord
+    get_result['latitude']
+  end
+
+  def get_single_postcode_euro_reg
+    get_result['european_electoral_region']
+  end
+
+  def get_single_postcode_local_nhs_board
+    get_result['primary_care_trust']
+  end
+
+  def get_single_postcode_region
+    get_result['region']
+  end
+
+  def get_single_postcode_lsoa
+    get_result['lsoa']
+  end
+
+  def get_single_postcode_msoa
+    get_result['msoa']
+  end
 end
 
 call = SinglePostcodesService.new
