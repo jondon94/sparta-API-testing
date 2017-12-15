@@ -13,4 +13,4 @@ class MultiPostcodesService
 end
 
 call = MultiPostcodesService.new
-p call.get_multiple_postcodes(["ch49pf", "sy233th"])
+# p call.get_multiple_postcodes(["ch49pf", "sy233th"])

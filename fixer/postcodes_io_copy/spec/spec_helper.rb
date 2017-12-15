@@ -1,5 +1,5 @@
 require 'json'
-require_relative '../postcodes_io_httparty'
+require_relative '../lib/postcodes_io_httparty'
 require 'httparty'
 
 RSpec.configure do |config|

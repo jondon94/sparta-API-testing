@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'postcodes_io' do
+describe 'postcodes_io_copy' do
 
   before(:each) do
     @pcode = Postcodesio.new

@@ -1,21 +1,14 @@
-require 'httparty'
-require 'json'
+require_relative 'services/single_postcode_service.rb'
+require_relative 'services/multi_postcode_service.rb'
 
 class Postcodesio
-  include HTTParty
 
-  base_uri 'https://api.postcodes.io'
-
-  def get_single_postcode(postcode)
-    JSON.parse(self.class.get("/postcodes/#{postcode}").body)
+  def single_postcode_service
+    SinglePostcodesService.new
   end
 
-  def get_multiple_postcodes(postcodes_array)
-    JSON.parse(self.class.post("/postcodes", body: { "postcodes" => postcodes_array}).body)
+  def multi_postcode_service
+    MultiPostcodesService.new
   end
 
 end
-
-x = Postcodesio.new
-# p x.get_single_postcode('ch49pf')
-# p x.get_multiple_postcodes(['ch49pf', 'sy233th'])
