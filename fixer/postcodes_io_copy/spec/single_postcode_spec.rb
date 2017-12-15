@@ -77,12 +77,12 @@ describe Postcodesio do
       expect(@postcodesio.get_single_postcode_msoa).to be_kind_of(String)
     end
 
-    # it "should have a code hash-key that contains 7 keys" do
-    #   expect(@pcode.get_single_postcode(a)['result']['codes'].length).to eq(7)
-    # end
-    #
-    # it "should have codes that contain strings" do
-    #   expect(@pcode.get_single_postcode(a)['result']['codes']['admin_district']).to be_kind_of(String)
-    # end
+    it "should have a code hash-key that contains 7 keys" do
+      expect(@postcodesio.get_single_postcode_codes.length).to eq(7)
+    end
+
+    it "should have an admin district that contain a string" do
+      expect(@postcodesio.get_single_postcode_codes_admin_dist).to be_kind_of(String)
+    end
   end
 end

@@ -71,6 +71,14 @@ class SinglePostcodesService
   def get_single_postcode_msoa
     get_result['msoa']
   end
+
+  def get_single_postcode_codes
+    get_result['codes']
+  end
+
+  def get_single_postcode_codes_admin_dist
+    get_single_postcode_codes['admin_district']
+  end
 end
 
 call = SinglePostcodesService.new
