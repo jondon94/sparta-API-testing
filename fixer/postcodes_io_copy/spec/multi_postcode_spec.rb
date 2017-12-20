@@ -12,7 +12,7 @@ describe Postcodesio do
     end
 
     it "should have 23 individual results for each postcode" do
-        expect(get_multiple_postcodes_result.length).to eq(23)
+        expect(@postcodesio.get_multiple_postcodes_result(postcodes_array).length).to eq(2)
     end
 
   end

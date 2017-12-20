@@ -12,12 +12,10 @@ class MultiPostcodesService
     @multi_postcode_data = JSON.parse(self.class.post("/postcodes", body: { "postcodes" => postcodes_array}).body)
   end
 
-  def get_multiple_postcodes_result
-    @multi_postcode_data['result']['result']
+  def get_multiple_postcodes_result(postcodes_array)
+    get_multiple_postcodes(["ch49pf", "sy233th"])['result']
   end
-
-
 end
 
 call = MultiPostcodesService.new
-# p call.get_multiple_postcodes(["ch49pf", "sy233th"])
+p call.get_multiple_postcodes_result(["ch49pf", "sy233th"]).length
